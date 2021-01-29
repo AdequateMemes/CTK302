@@ -16,8 +16,8 @@ function setup() {
 }
 
 function draw() {
-background('white');
-image(drg, width/2, height/2, 200, 200);
-image(xiv, width/2, height/2 - 200, 200, 200);
-image(mns, width/2, height/2 + 200, 200, 200);
+background(200,200,235);
+image(drg, width/2, height/2, 332, 200);
+image(xiv, width/2, height/2 - 200, 302, 200);
+image(mns, width/2, height/2 + 200, 346, 200);
 }

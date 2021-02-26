@@ -6,16 +6,15 @@ function setup() {
 
 function draw() {
   background(100);
-  avatar();
 
   push();
   translate(x,0);
-  rect(100,100,100,100);
+  avatar();
   pop();
 
-  x = x + 10;
+  x += 10;
   if (x > width){
-    x = 0;
+    x = -1000;
   }
 
 

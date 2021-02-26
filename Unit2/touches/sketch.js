@@ -1,7 +1,12 @@
 let numberOfTouches ;
+var one, two, three;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
+  one = loadImage("assets/onefinger.jpg");
+  two = loadImage("assets/twofingers.jpg");
+  three = loadImage("assets/threefingers.jpg");
+  imageMode(CENTER);
 }
 
 function draw() {
@@ -11,21 +16,21 @@ function draw() {
 
   switch(numberOfTouches) {
     case 0:
-      text("no one is touching the screen", 5, 22) ;
+      text("Nary a finger to be found.", 5, 22) ;
       break ;
 
       case 1:
-       text("it's kind of lonely here", 5, 22) ;
+       text("Oh, there's one.", 5, 22) ;
       // put a picture here
       break ;
 
       case 2:
-      text("two fingers are touching the screen", 5, 22) ;
+      text("And that makes two.", 5, 22) ;
             // put a picture here
       break ;
 
       case 3:
-     text("three are touching the screen", 5, 22) ;
+     text("A third has joined.", 5, 22) ;
             // put a picture here
       break ;
 

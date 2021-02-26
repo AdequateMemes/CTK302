@@ -16,6 +16,8 @@ function draw() {
     // stuff that shows when the mouse is pressed
     stroke('black');
     background(60,60,90);
+    fill(20);
+    quad(0,400, 1000,400, 1000,800, 0,800);
     fill(80);
     // FRONT
     quad(250,600, 750,600, 625,400, 375,400);
@@ -76,6 +78,8 @@ function draw() {
   } else {
     stroke('black');
     // when the mouse isn't pressed!
+    fill(20);
+    quad(0,400, 1000,400, 1000,800, 0,800);
     fill(80);
     // FRONT
     quad(250,600, 750,600, 625,400, 375,400);
@@ -119,6 +123,6 @@ function draw() {
 
 
 // record the mouse location in console when clicked
-function mouseReleased() {
-  print(mouseX + ", " + mouseY);
+//function mouseReleased() {
+//  print(mouseX + ", " + mouseY);
 }

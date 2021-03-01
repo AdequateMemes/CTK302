@@ -4,14 +4,18 @@ var score = 0;
 var button1 = 0;
 var button2 = 0;
 var difficulty = 0; // a growing modifier up to a maximum value of 3 seconds (180 value), which will be subtracted from round timers.
+var img; // replace with specific names as needed
 
 function setup() {
   createCanvas(600, 600);
+  angleMode(DEGREES);
+  textAlign(CENTER);
+  imageMode(CENTER);
+  img = loadImage("Stopwatch.png"); // These commands
 }
 
 function draw() {
   background(210, 210, 255);
-  textAlign(CENTER);
   // button frames
   textSize(18);
   fill('white');
@@ -49,10 +53,14 @@ function draw() {
       break;
     case 1: // ready phase
       fill('black');
+      image(img, 550, 290, 86, 115); // stopwatch
+      fill('green')
+      arc(550, 305, 78, 78, -timer*2, TWO_PI);
+      fill('black');
       text("Next activation in: " + (timer / 60).toFixed(2), width / 2, 20);
       text("Score: " + score, width / 2, 540);
       timer--;
-      if (timer < 0) {
+      if (timer == 0) {
         state++;
       }
       break;

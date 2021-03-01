@@ -6,42 +6,42 @@ function setup() {
 
 function draw() {
 
-  switch(state) {
+  switch (state) {
     case 0:
-    background('grey');
-    text("state 0", 100, 100);
-    pattern(25, 5);
-    break;
+      background('grey');
+      text("state 0", 100, 100);
+      pattern(25, 5);
+      break;
 
     case 1:
-    background('green');
-    text("state 1", 100, 100);
-    pattern(10, 50);
-    break;
+      background('green');
+      text("state 1", 100, 100);
+      pattern(10, 50);
+      break;
 
     case 2:
-    background(100, 220, 0); //yellow green
-    text("state 2", 100, 100);
-    pattern(5,5);
-    break;
+      background(100, 220, 0); //yellow green
+      text("state 2", 100, 100);
+      pattern(5, 5);
+      break;
 
     case 3:
-    background('yellow');
-    text("state 3", 100, 100);
-    pattern(15, 30);
-    break;
+      background('yellow');
+      text("state 3", 100, 100);
+      pattern(15, 30);
+      break;
 
     case 4:
-    background('orange');
-    text("state 4", 100, 100);
-    pattern(45, 20);
-    break;
+      background('orange');
+      text("state 4", 100, 100);
+      pattern(45, 20);
+      break;
 
     case 5:
-    background('red');
-    text("state 5", 100, 100);
-    pattern(5, 25);
-    break;
+      background('red');
+      text("state 5", 100, 100);
+      pattern(5, 25);
+      break;
   }
 }
 

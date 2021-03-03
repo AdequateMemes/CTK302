@@ -4,14 +4,15 @@ var score = 0;
 var button1 = 0;
 var button2 = 0;
 var difficulty = 0; // a growing modifier up to a maximum value of 3 seconds (180 value), which will be subtracted from round timers.
-var img; // replace with specific names as needed
+var img, img2; // replace with specific names as needed
 
 function setup() {
   createCanvas(600, 600);
   angleMode(DEGREES);
   textAlign(CENTER);
-  imageMode(CENTER);
-  img = loadImage("Stopwatch.png"); // These commands
+  //imageMode(CENTER);
+  img = loadImage("Stopwatch2.png"); // These commands
+  img2 = loadImage("button.png");
 }
 
 function draw() {
@@ -53,9 +54,10 @@ function draw() {
       break;
     case 1: // ready phase
       fill('black');
-      image(img, 550, 290, 86, 115); // stopwatch
+      //image(img, 550, 290, 86, 115); // stopwatch
+      image(img, 506.5, 233, 86, 115);
       fill('green')
-      arc(550, 305, 78, 78, -timer*2, TWO_PI);
+      arc(551, 306, 77, 77, -timer * 2 - 90, -90);
       fill('black');
       text("Next activation in: " + (timer / 60).toFixed(2), width / 2, 20);
       text("Score: " + score, width / 2, 540);
@@ -75,29 +77,32 @@ function draw() {
       state++;
       break;
     case 3: // active game phase
+      //image(img, 550, 290, 86, 115); // stopwatch
+      image(img, 506.5, 233, 86, 115);
       fill('red');
+      arc(551, 306, 77, 77, -timer*1.2 - 90, -90);
       text("Click red buttons!: " + (timer / 60).toFixed(2), width / 2, 20);
       text("b1: " + button1 + "/ b2: " + button2, width / 2, 60);
       // row 1
-      if (button1 == 1 || button2 == 1) rect(100, 100, 100, 100);
-      if (button1 == 2 || button2 == 2) rect(200, 100, 100, 100);
-      if (button1 == 3 || button2 == 3) rect(300, 100, 100, 100);
-      if (button1 == 4 || button2 == 4) rect(400, 100, 100, 100);
+      if (button1 == 1 || button2 == 1) image(img2, 100, 100);
+      if (button1 == 2 || button2 == 2) image(img2, 200, 100);
+      if (button1 == 3 || button2 == 3) image(img2, 300, 100);
+      if (button1 == 4 || button2 == 4) image(img2, 400, 100);
       // row 2
-      if (button1 == 5 || button2 == 5) rect(100, 200, 100, 100);
-      if (button1 == 6 || button2 == 6) rect(200, 200, 100, 100);
-      if (button1 == 7 || button2 == 7) rect(300, 200, 100, 100);
-      if (button1 == 8 || button2 == 8) rect(400, 200, 100, 100);
+      if (button1 == 5 || button2 == 5) image(img2, 100, 200);
+      if (button1 == 6 || button2 == 6) image(img2, 200, 200);
+      if (button1 == 7 || button2 == 7) image(img2, 300, 200);
+      if (button1 == 8 || button2 == 8) image(img2, 400, 200);
       // row 3
-      if (button1 == 9 || button2 == 9) rect(100, 300, 100, 100);
-      if (button1 == 10 || button2 == 10) rect(200, 300, 100, 100);
-      if (button1 == 11 || button2 == 11) rect(300, 300, 100, 100);
-      if (button1 == 12 || button2 == 12) rect(400, 300, 100, 100);
+      if (button1 == 9 || button2 == 9) image(img2, 100, 300);
+      if (button1 == 10 || button2 == 10) image(img2, 200, 300);
+      if (button1 == 11 || button2 == 11) image(img2, 300, 300);
+      if (button1 == 12 || button2 == 12) image(img2, 400, 300);
       // row 4
-      if (button1 == 13 || button2 == 13) rect(100, 400, 100, 100);
-      if (button1 == 14 || button2 == 14) rect(200, 400, 100, 100);
-      if (button1 == 15 || button2 == 15) rect(300, 400, 100, 100);
-      if (button1 == 16 || button2 == 16) rect(400, 400, 100, 100);
+      if (button1 == 13 || button2 == 13) image(img2, 100, 400);
+      if (button1 == 14 || button2 == 14) image(img2, 200, 400);
+      if (button1 == 15 || button2 == 15) image(img2, 300, 400);
+      if (button1 == 16 || button2 == 16) image(img2, 400, 400);
 
       fill('black');
       text("Score: " + score, width / 2, 540);
@@ -117,6 +122,10 @@ function draw() {
     case 4: // results screen
       fill('black');
       text("Time's up!\nYou clicked: " + score + " red buttons.", width / 2, 20);
+      fill('green');
+      rect(200, 525, 200, 50);
+      fill('white')
+      text("Retry", width / 2, 555);
       break;
   }
 }
@@ -129,9 +138,13 @@ function mouseReleased() {
     state++;
   }
 
+  if ((state == 4) && (mouseX > 200) && (mouseX < 400) && (mouseY > 525) && (mouseY < 575)) {
+    state = 0;
+  }
 
   // this is going to be a bit ugly, but:
   // button click checks
+  // this is entirely so i can condense 140 lines into one in atom. lmao. https://i.imgur.com/4Qevbnn.png
   if (state == 3) {
     // [BUTTON 1]
     // row 1
@@ -272,6 +285,6 @@ function mouseReleased() {
       button2 = 0;
       score++;
     }
-  } // this is entirely so i can condense 140 lines into one in atom. lmao. https://i.imgur.com/4Qevbnn.png
+  }
 
 }

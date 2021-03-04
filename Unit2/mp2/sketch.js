@@ -45,7 +45,7 @@ function draw() {
     case 0: // title screen
       score = 0;
       fill('black');
-      text("Grid Clicker", width / 2, 20);
+      text("Grid Clicker", width / 2, 60);
       text("After a few seconds, tiles will turn red.\nClick tiles fast enough to gain points.\nThe game ends when time is up and the red tiles are not clicked.", width / 2, 540);
       fill('green');
       rect(200, 275, 200, 50);
@@ -59,7 +59,7 @@ function draw() {
       fill('green')
       arc(551, 306, 77, 77, -timer * 2 - 90, -90);
       fill('black');
-      text("Next activation in: " + (timer / 60).toFixed(2), width / 2, 20);
+      text("Next activation in: " + (timer / 60).toFixed(2), width / 2, 60);
       text("Score: " + score, width / 2, 540);
       timer--;
       if (timer == 0) {
@@ -81,8 +81,8 @@ function draw() {
       image(img, 506.5, 233, 86, 115);
       fill('red');
       arc(551, 306, 77, 77, -timer*1.2 - 90, -90);
-      text("Click red buttons!: " + (timer / 60).toFixed(2), width / 2, 20);
-      text("b1: " + button1 + "/ b2: " + button2, width / 2, 60);
+      text("Click red buttons!: " + (timer / 60).toFixed(2), width / 2, 60);
+      //text("b1: " + button1 + "/ b2: " + button2, width / 2, 60);
       // row 1
       if (button1 == 1 || button2 == 1) image(img2, 100, 100);
       if (button1 == 2 || button2 == 2) image(img2, 200, 100);
@@ -121,7 +121,7 @@ function draw() {
       break;
     case 4: // results screen
       fill('black');
-      text("Time's up!\nYou clicked: " + score + " red buttons.", width / 2, 20);
+      text("Time's up!\nYou clicked: " + score + " red buttons.", width / 2, 60);
       fill('green');
       rect(200, 525, 200, 50);
       fill('white')

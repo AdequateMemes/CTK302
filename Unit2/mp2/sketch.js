@@ -139,6 +139,7 @@ function mouseReleased() {
   }
 
   if ((state == 4) && (mouseX > 200) && (mouseX < 400) && (mouseY > 525) && (mouseY < 575)) {
+    difficulty = 0;
     state = 0;
   }
 

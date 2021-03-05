@@ -2,7 +2,7 @@ let state = 0;
 let song1, song2, song3; //declare variable
 
 function preload() {
-  song1 = loadSound("assets/field.mp3");
+  song1 = loadSound("assets/Field.mp3");
   song2 = loadSound("assets/FATE.mp3");
   song3 = loadSound("assets/safe.mp3");
 

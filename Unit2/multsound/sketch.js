@@ -7,11 +7,11 @@ function preload() {
   song3 = loadSound("assets/safe.mp3");
 
   song1.loop();
-  song1.pause();
+  song1.stop();
   song2.loop();
-  song2.pause();
+  song2.stop();
   song3.loop();
-  song3.pause();
+  song3.stop();
 }
 
 function setup() {

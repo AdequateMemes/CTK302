@@ -29,7 +29,8 @@ function draw() {
       break;
 
     case 1:
-      text("Listen to song 1", 100, 100);
+      background(150, 200, 255);
+      text("La Noscean Field", 100, 100);
       break;
 
     case 2:
@@ -38,7 +39,8 @@ function draw() {
       break;
 
     case 3:
-      text("Listen to song 2", 100, 100);
+      background(255, 175, 100);
+      text("Hard To Miss", 100, 100);
       break;
 
     case 4:
@@ -47,7 +49,8 @@ function draw() {
       break;
 
     case 5:
-      text("Listen to song 3", 100, 100);
+      background(110, 100, 255);
+      text("Rest", 100, 100);
       break;
 
   }

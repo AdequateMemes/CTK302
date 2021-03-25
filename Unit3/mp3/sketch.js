@@ -4,7 +4,7 @@ let maxTimer = 5 * 60;
 let timer = 0;
 let frogPos;
 let state = 0;
-let dollar, bag, win, loss, instructions;
+let dollar, bag, win, loss, instructions, street;
 
 
 
@@ -19,6 +19,7 @@ function setup() {
   loss = loadImage("assets/loss.png");
   win = loadImage("assets/win.png");
   instructions = loadImage("assets/Instructions.png");
+  street = loadImage("assets/street.jpg");
 
   // Spawn an object
 
@@ -43,6 +44,7 @@ function draw() {
 
     case 1:
       game();
+
       timer++;
       if (timer >= 600){
         state = 3;
@@ -94,6 +96,9 @@ function reset()
 
 function game() {
   background(100);
+  image(street, width/2, height/2);
+  fill(0,0,0,50);
+  rect(0, 0, width, height);
 
   for (let i = 0; i < cars.length; i++) {
     cars[i].display();

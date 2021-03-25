@@ -5,6 +5,7 @@ let timer = 0;
 let frogPos;
 let state = 0;
 let dollar, bag, win, loss, instructions, street;
+let dollars = [];
 
 
 
@@ -15,7 +16,9 @@ function setup() {
   imageMode(CENTER);
 
   bag = loadImage("assets/bag.png"); // These commands
-  dollar = loadImage("assets/dollar.png"); // load the images
+  //dollar = loadImage("assets/dollar.png"); // load the images
+  dollars[0] = loadImage("assets/dollar.png");
+  dollars[1] = loadImage("assets/dollar2.png");
   loss = loadImage("assets/loss.png");
   win = loadImage("assets/win.png");
   instructions = loadImage("assets/Instructions.png");
@@ -39,14 +42,14 @@ function draw() {
       background(150, 75, 75);
       fill('white');
       text('Arrow keys to move, collect counterfeit dollars.\nClick to start.', 100, 100);
-      image(instructions, width/2, height/2 + height/8, 500, 500);
+      image(instructions, width / 2, height / 2 + height / 8, 500, 500);
       break;
 
     case 1:
       game();
 
       timer++;
-      if (timer >= 600){
+      if (timer >= 600) {
         state = 3;
       }
       break;
@@ -55,38 +58,37 @@ function draw() {
       background(100, 100, 200);
       fill('white');
       text('You got them. But can you do it again?\nClick to restart.', 100, 100);
-      image(win, width/2, height/2 + height/8, 500, 500);
+      image(win, width / 2, height / 2 + height / 8, 500, 500);
       break;
 
     case 3:
       background(114, 199, 153);
       fill('black');
       text('In those 10 seconds,\nan unexplained gust of plot wind carries away your fake money.\nNothing of value was lost.\nExcept the game.\nYou lost that.\nClick to restart.', 100, 100);
-      image(loss, width/2, height/2 + height/8, 500, 500);
+      image(loss, width / 2, height / 2 + height / 8, 500, 500);
       break;
   }
 }
 
 function mouseReleased() {
-  switch(state){
+  switch (state) {
     case 0:
-    state = 1;
-    break;
+      state = 1;
+      break;
 
     case 2: // clicked during win state
-    reset();
-    state = 0;
-    break;
+      reset();
+      state = 0;
+      break;
 
     case 3: // clicked during loss state
-    reset();
-    state = 0;
-    break;
+      reset();
+      state = 0;
+      break;
   }
 }
 
-function reset()
-{
+function reset() {
   timer = 0;
   cars = [];
   for (let i = 0; i < maxCars; i++) {
@@ -96,8 +98,8 @@ function reset()
 
 function game() {
   background(100);
-  image(street, width/2, height/2);
-  fill(0,0,0,50);
+  image(street, width / 2, height / 2);
+  fill(0, 0, 0, 50);
   rect(0, 0, width, height);
 
   for (let i = 0; i < cars.length; i++) {
@@ -110,7 +112,7 @@ function game() {
   }
 
   // check to see if array == 0
-  if (cars.length == 0){
+  if (cars.length == 0) {
     state = 2;
   }
 
@@ -140,6 +142,8 @@ class Car {
     this.col = color(random(255), random(255), random(255));
     this.width = 60;
     this.height = 30;
+    this.spriteNum = 0;
+    this.timer = 0;
   }
 
   // methods
@@ -149,7 +153,15 @@ class Car {
     //rect(this.pos.x, this.pos.y, this.width, this.height);
     // textSize(this.width) ;
     // text("WOOHOO", this.pos.x, this.pos.y);
-    image(dollar, this.pos.x, this.pos.y);
+    //image(dollar, this.pos.x, this.pos.y);
+    image(dollars[this.spriteNum], this.pos.x, this.pos.y);
+
+    this.timer = this.timer + 1;
+    if (this.timer < 5) this.spriteNum = 0;
+
+    if (this.timer > 5) this.spriteNum = 1;
+
+    if (this.timer > 10) this.timer = 0;
   }
 
   move() {

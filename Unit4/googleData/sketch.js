@@ -67,11 +67,11 @@ class Bubble {
   display() {
     if (this.disposition == "Serious") {
       if (this.sharing == "Share") fill('lightblue'); // colors for sharing (light blue if prefer to share, red if keeping to yourself)
-      else fill('lightred');
+      else fill('pink');
       rect(this.pos.x, this.pos.y, 50, 50);
     } else {
       if (this.sharing == "Share") fill('lightblue'); // colors for sharing (light blue if prefer to share, red if keeping to yourself)
-      else fill('lightred');
+      else fill('pink');
       ellipse(this.pos.x, this.pos.y, 50, 50);
     }
 

@@ -16,7 +16,7 @@ function draw() {
     text(locationData.latitude, 40, 40) ;
     text(locationData.longitude, 40, 60) ;
     text(locationData.accuracy, 40, 80) ;
-  text(locationData.altitude, 40, 100) ;
+    text(locationData.altitude, 40, 100) ;
 
     text(locationData.altitudeAccuracy, 40, 120) ;
     text(locationData.heading, 40, 140) ;

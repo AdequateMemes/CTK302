@@ -5,7 +5,7 @@ var weatherID = 0; // returned in the JSON weather element
 var myState = 0;
 var x = 0;
 var windspeed = 0;
-var cloud, thermometer, frame, lat, long, forecastbutton1, currentbutton1, pingbutton, cloudy, sunny, rainy;
+var cloud, thermometer, frame, lat, long, forecastbutton1, currentbutton1, pingbutton, cloudy, sunny, rainy, warmer, cooler;
 
 var h = hour();
 var m = minute();
@@ -26,6 +26,8 @@ function setup() {
   cloudy = loadImage("assets/Clouds.png");
   sunny = loadImage("assets/Clear.png");
   rainy = loadImage("assets/Rain.png");
+  warmer = loadImage("assets/warmer.png");
+  cooler = loadImage("assets/cooler.png");
   lat = locationData.latitude;
   long = locationData.longitude;
   // HERE is the call to get the weather.
@@ -149,9 +151,25 @@ function draw() {
       background(150, 150, 255);
       fill('black');
       text("Temp in 2 hours: " + hr2temp + " F.", 20, 50);
+      if (hr2temp > temp)
+        image(warmer, 235, 30);
+      if (hr2temp < temp)
+        image(cooler, 235, 30);
       text("Temp in 4 hours: " + hr4temp + " F.", 20, 75);
+      if (hr4temp > hr2temp)
+        image(warmer, 235, 55);
+      if (hr4temp < hr2temp)
+        image(cooler, 235, 55);
       text("Temp in 6 hours: " + hr6temp + " F.", 20, 100);
+      if (hr6temp > hr4temp)
+        image(warmer, 235, 80);
+      if (hr6temp < hr4temp)
+        image(cooler, 235, 80);
       text("Temp in 8 hours: " + hr8temp + " F.", 20, 125);
+      if (hr8temp > hr6temp)
+        image(warmer, 235, 105);
+      if (hr8temp < hr6temp)
+        image(cooler, 235, 105);
       text("Tomorrow: [Low: " + day1min + " F] [High: " + day1max + "F]" + " [" + day1weather + "]", 20, 175);
       if (day1main == "Clouds")
         image(cloudy, 550, 155);

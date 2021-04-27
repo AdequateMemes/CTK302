@@ -22,7 +22,7 @@ function setup() {
   frame = loadImage("assets/frame2.png");
   forecastbutton1 = loadImage("assets/forecast1.png");
   currentbutton1 = loadImage("assets/current1.png");
-  pingbutton = loadImage("assets/ping.png");
+  pingbutton = loadImage("assets/refresh.png");
   cloudy = loadImage("assets/Clouds.png");
   sunny = loadImage("assets/Clear.png");
   rainy = loadImage("assets/Rain.png");

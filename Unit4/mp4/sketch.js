@@ -5,7 +5,7 @@ var weatherID = 0; // returned in the JSON weather element
 var myState = 0;
 var x = 0;
 var windspeed = 0;
-var cloud, thermometer, frame, lat, long, forecastbutton1, currentbutton1, cloudy, sunny, rainy;
+var cloud, thermometer, frame, lat, long, forecastbutton1, currentbutton1, pingbutton, cloudy, sunny, rainy;
 
 var h = hour();
 var m = minute();
@@ -22,6 +22,7 @@ function setup() {
   frame = loadImage("assets/frame2.png");
   forecastbutton1 = loadImage("assets/forecast1.png");
   currentbutton1 = loadImage("assets/current1.png");
+  pingbutton = loadImage("assets/ping.png");
   cloudy = loadImage("assets/Clouds.png");
   sunny = loadImage("assets/Clear.png");
   rainy = loadImage("assets/Rain.png");
@@ -121,6 +122,7 @@ function draw() {
       //text("At " + h + ":" + m + ", it will be " + hr8temp + " F.", 20, 400);
 
       image(forecastbutton1, 50, 425);
+      image(pingbutton, 300, 425);
 
       // cloud
       noStroke();
@@ -201,6 +203,7 @@ function draw() {
         image(sunny, 550, 305);
 
       image(currentbutton1, 50, 425);
+      image(pingbutton, 300, 425);
 
       image(frame, 0, 0);
       break;
@@ -215,5 +218,8 @@ function draw() {
       if (myState > 2) {
         myState = 0;
       }
+    }
+    if ((mouseX > 300) && (mouseX < 400) && (mouseY > 425) && (mouseY < 475)){
+      location.reload();
     }
   }

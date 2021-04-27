@@ -157,42 +157,42 @@ function draw() {
         image(rainy, 550, 155);
       if (day1main == "Clear")
         image(sunny, 550, 155);
-      text("Tomorrow: [Low: " + day2min + " F] [High: " + day2max + "F]" + " [" + day2weather + "]", 20, 200);
+      text("In 2 days: [Low: " + day2min + " F] [High: " + day2max + "F]" + " [" + day2weather + "]", 20, 200);
       if (day2main == "Clouds")
         image(cloudy, 550, 180);
       if (day2main == "Rain")
         image(rainy, 550, 180);
       if (day2main == "Clear")
         image(sunny, 550, 180);
-      text("Tomorrow: [Low: " + day3min + " F] [High: " + day3max + "F]" + " [" + day3weather + "]", 20, 225);
+      text("In 3 days: [Low: " + day3min + " F] [High: " + day3max + "F]" + " [" + day3weather + "]", 20, 225);
       if (day3main == "Clouds")
         image(cloudy, 550, 205);
       if (day3main == "Rain")
         image(rainy, 550, 205);
       if (day3main == "Clear")
         image(sunny, 550, 205);
-      text("Tomorrow: [Low: " + day4min + " F] [High: " + day4max + "F]" + " [" + day4weather + "]", 20, 250);
+      text("In 4 days: [Low: " + day4min + " F] [High: " + day4max + "F]" + " [" + day4weather + "]", 20, 250);
       if (day4main == "Clouds")
         image(cloudy, 550, 230);
       if (day4main == "Rain")
         image(rainy, 550, 230);
       if (day4main == "Clear")
         image(sunny, 550, 230);
-      text("Tomorrow: [Low: " + day5min + " F] [High: " + day5max + "F]" + " [" + day5weather + "]", 20, 275);
+      text("In 5 days: [Low: " + day5min + " F] [High: " + day5max + "F]" + " [" + day5weather + "]", 20, 275);
       if (day5main == "Clouds")
         image(cloudy, 550, 255);
       if (day5main == "Rain")
         image(rainy, 550, 255);
       if (day5main == "Clear")
         image(sunny, 550, 255);
-      text("Tomorrow: [Low: " + day6min + " F] [High: " + day6max + "F]" + " [" + day6weather + "]", 20, 300);
+      text("In 6 days: [Low: " + day6min + " F] [High: " + day6max + "F]" + " [" + day6weather + "]", 20, 300);
       if (day6main == "Clouds")
         image(cloudy, 550, 280);
       if (day6main == "Rain")
         image(rainy, 550, 280);
       if (day6main == "Clear")
         image(sunny, 550, 280);
-      text("Tomorrow: [Low: " + day7min + " F] [High: " + day7max + "F]" + " [" + day7weather + "]", 20, 325);
+      text("In 7 days: [Low: " + day7min + " F] [High: " + day7max + "F]" + " [" + day7weather + "]", 20, 325);
       if (day7main == "Clouds")
         image(cloudy, 550, 305);
       if (day7main == "Rain")

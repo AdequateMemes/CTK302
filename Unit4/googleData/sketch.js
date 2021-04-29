@@ -1,4 +1,5 @@
 var bubbles = [];
+var bgimg;
 
 function setup() {
 
@@ -21,6 +22,7 @@ function setup() {
   ellipseMode(CENTER);
   rectMode(CENTER);
 
+  bgimg = loadImage("databg.png");
 }
 
 // The data comes back as an array of objects
@@ -39,6 +41,7 @@ function gotData(data) {
 
 function draw() {
   background('lightgray');
+  image(bgimg, 0, 0);
 
   // // iterate through the bubbles and display the objects!
   for (let i = 0; i < bubbles.length; i++) {
@@ -58,7 +61,10 @@ class Bubble {
     this.disposition = myDisposition;
     this.sharing = mySharing;
     this.pos = createVector(random(width), random(height));
-    this.vel = createVector(random(5), 0) ;
+    if (this.sharing == "Share")
+      this.vel = createVector(random(3), random(-3)) ;
+    if (this.sharing == "Self")
+      this.vel = createVector(random(2), random(3)) ;
 
 
   }
@@ -83,6 +89,8 @@ class Bubble {
   move() {
     this.pos.add(this.vel);
     if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y < 0) this.pos.y = 600;
   }
 
 }
